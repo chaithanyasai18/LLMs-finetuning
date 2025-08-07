@@ -1,0 +1,112 @@
+# LoRA Fine-tuning Pipeline Configuration
+# =====================================
+# Configuration file for standardized LoRA fine-tuning across multiple LLM architectures
+# All models use consistent hyperparameters for reproducible results
+
+# Standard Hyperparameters (Applied to All Models)
+STANDARD_CONFIG:
+  epochs: 5                    # Sufficient for convergence without overfitting
+  rank: 16                     # Optimal balance between expressiveness and efficiency
+  learning_rate: 0.00005       # Conservative rate for stability across all model sizes
+  max_new_tokens: 512          # Sufficient for detailed cybersecurity responses
+  temperature: 0.1             # Low temperature for consistent, focused outputs
+  target_modules: ["q_proj", "v_proj", "k_proj", "o_proj"]  # Attention layer adaptation
+
+# Model Configurations
+MODELS:
+  mistral_7b_base:
+    name: "Mistral-7B-Base-CyberQA"
+    base_model: "mistral-7b"
+    client_name: "mistral-7b"
+    dataset_path: "../data/Mistral/data.csv"
+    repo_name: "Mistral-7B-Base-CyberQA-v1"
+    adapter_name: "Mistral-7B-Base-CyberQA-v1/1"
+    
+  mistral_7b_instruct:
+    name: "Mistral-7B-Instruct-CyberQA"
+    base_model: "mistral-7b-instruct-v0-3"
+    client_name: "mistral-7b-instruct-v0-3"
+    dataset_path: "../data/Mistral/data.csv"
+    repo_name: "Mistral-7B-Instruct-CyberQA-v1"
+    adapter_name: "Mistral-7B-Instruct-CyberQA-v1/1"
+    
+  llama3_8b_instruct:
+    name: "Llama-3-8B-Instruct-CyberQA"
+    base_model: "llama-3-8b-instruct"
+    client_name: "llama-3-8b-instruct"
+    dataset_path: "../data/Meta-Llama3.1/data.csv"
+    repo_name: "Llama-3-8B-Instruct-CyberQA-v1"
+    adapter_name: "Llama-3-8B-Instruct-CyberQA-v1/1"
+    
+  llama31_8b_instruct:
+    name: "Llama-3.1-8B-Instruct-CyberQA"
+    base_model: "meta-llama/Meta-Llama-3.1-8B-Instruct"
+    client_name: "meta-llama/Meta-Llama-3.1-8B-Instruct"
+    dataset_path: "../data/Meta-Llama3.1/data.csv"
+    repo_name: "Llama-3.1-8B-Instruct-CyberQA-v1"
+    adapter_name: "Llama-3.1-8B-Instruct-CyberQA-v1/1"
+    
+  google_gemma_2b:
+    name: "Google-Gemma-2B-CyberQA"
+    base_model: "google/gemma-2b"
+    client_name: "google/gemma-2b"
+    dataset_path: "../data/Google-Gemma/data.csv"
+    repo_name: "Google-Gemma-2B-CyberQA-v1"
+    adapter_name: "Google-Gemma-2B-CyberQA-v1/1"
+    
+  microsoft_phi3_mini:
+    name: "Microsoft-Phi-3-Mini-CyberQA"
+    base_model: "microsoft/Phi-3-mini-4k-instruct"
+    client_name: "microsoft/Phi-3-mini-4k-instruct"
+    dataset_path: "../data/Microsoft-Phi/data.csv"
+    repo_name: "Microsoft-Phi-3-Mini-CyberQA-v1"
+    adapter_name: "Microsoft-Phi-3-Mini-CyberQA-v1/1"
+    
+  zephyr_7b_beta:
+    name: "Zephyr-7B-Beta-CyberQA"
+    base_model: "HuggingFaceH4/zephyr-7b-beta"
+    client_name: "HuggingFaceH4/zephyr-7b-beta"
+    dataset_path: "../data/Zephyr/data.csv"
+    repo_name: "Zephyr-7B-Beta-CyberQA-v1"
+    adapter_name: "Zephyr-7B-Beta-CyberQA-v1/1"
+
+# Pipeline Settings
+PIPELINE:
+  max_retries: 3
+  retry_delay: 10              # seconds
+  batch_size: 1
+  parallel_processing: false
+  data_base_path: "../data"
+  
+# Environment Configuration
+ENVIRONMENT:
+  required_tokens:
+    - PREDIBASE_API_TOKEN
+  optional_tokens:
+    - WANDB_API_KEY
+    - HUGGINGFACE_TOKEN
+  
+# Logging Configuration
+LOGGING:
+  level: "INFO"
+  log_file: "lora_finetuning.log"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  max_file_size: "10MB"
+  backup_count: 5
+
+# Test Questions for Model Evaluation
+TEST_QUESTIONS:
+  - "What is multi-factor authentication and why is it important in cybersecurity?"
+  - "Explain the difference between symmetric and asymmetric encryption in simple terms."
+  - "What are the key components of a Security Operations Center (SOC) and their functions?"
+  - "How does zero-trust security architecture work and why is it becoming popular?"
+  - "What is the difference between vulnerability assessment and penetration testing?"
+  - "Explain what a firewall does and the different types available."
+
+# Output Settings
+OUTPUT:
+  results_directory: "./results"
+  logs_directory: "./logs"
+  timestamp_format: "%Y%m%d_%H%M%S"
+  include_metadata: true
+  save_comparisons: true

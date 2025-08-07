@@ -1,0 +1,30 @@
+# LoRA Fine-tuning Pipeline Dependencies
+
+# Core ML Platform
+predibase>=2024.7.2          # LoRA fine-tuning platform
+python-dotenv>=1.0.0         # Environment variable management
+
+# Data Processing
+pandas>=2.0.0                # Data manipulation
+numpy>=1.24.0                # Numerical computing
+
+# LangChain Integration
+langchain-community>=0.2.0   # LLM integration utilities
+
+# Configuration Management
+PyYAML>=6.0                  # YAML configuration parsing
+
+# System Monitoring
+psutil>=5.9.0                # System resource monitoring
+
+# Logging and Progress
+rich>=13.5.0                 # Rich console output
+tqdm>=4.66.0                 # Progress bars
+
+# Optional: Experiment Tracking
+wandb>=0.15.0                # Weights & Biases (optional)
+
+# Development Tools (Optional)
+pytest>=7.4.0               # Testing framework
+black>=23.7.0                # Code formatting
+flake8>=6.0.0                # Code linting

@@ -1,0 +1,7 @@
+{
+    "notebook.output.wordWrap": true,
+    "editor.wordWrap": "on",
+    "cSpell.ignoreWords": [
+        "predibase"
+    ]
+}

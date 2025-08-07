@@ -1,0 +1,178 @@
+name: Llama2-7B-Chat-SFT-v0.1
+labels:
+  - train
+max_restarts: 0
+searcher:
+  name: single
+  metric: eval_loss
+  max_length:
+    epochs: 5
+  resources:
+  slots_per_trial: 6
+  resource_pool: a100
+  shm_size: 17179869184
+project: .default
+workspace: PROJECT-WORKSPACE
+hyperparameters:
+  runner_settings:
+    session:
+      workspace:
+        id: ${WORKSPACE_ID}
+        name: PROJECT-WORKSPACE
+        experiment_project_id: ${EXPERIMENT_PROJECT_ID}
+        controller_project_id: ${CONTROLLER_PROJECT_ID}
+        creation_time: null
+      project:
+        id: ${PROJECT_ID}
+        name: .default
+        workspace_id: ${WORKSPACE_ID}
+    environment:
+      distributed_type: 3
+      use_rank_zero: false
+  experiment_settings:
+    model:
+      hf_model_name: meta-llama/Llama-2-7b-chat-hf
+      hf_model_revision: main
+      hf_model_commit: 94b07a6e30c3292b8265ed32ffdeccfdadf434a8
+      model_architecture: Llama-2-7b
+      problem_type: ""
+      source: HUGGING_FACE
+      model_type: STANDARD_LLM
+      peft_config: null
+      formatting_tokens:
+        input_role_tokens:
+          user:
+            start: ""
+            end: ""
+          system:
+            start: |
+              <<SYS>>
+            end: |+
+
+              <</SYS>>
+
+        output_role_tokens:
+          assistant:
+            start: " "
+            end: " "
+        input_sequence_tokens:
+          start: "<s>[INST] "
+          end: " [/INST]"
+        output_sequence_tokens:
+          start: ""
+          end: </s>
+      registered_in_genai: true
+    peft_model: null
+    project_id: ${PROJECT_ID}
+    name: Llama2-7B-Chat-SFT-v0.1
+    train_config:
+      data_args:
+        dataset_data:
+          name: TRAINING-DATA-${TIMESTAMP}
+          workspace_id: ${WORKSPACE_ID}
+          source: LOCAL
+          data_type:
+            - TEXT
+          size: 32298279
+          row_count: 5170
+          split_row_counts: '{"test": 517, "train": 4136, "validation": 517}'
+          features: >-
+            {"test": "{'Question': Value(dtype='string', id=None), 'Answer':
+            Value(dtype='string', id=None)}", "train": "{'Question':
+            Value(dtype='string', id=None), 'Answer': Value(dtype='string',
+            id=None)}", "validation" : "{'Question': Value(dtype='string',
+            id=None), 'Answer': Value(dtype='string', id=None)}"}
+          description: "Dataset contains 5170 samples of Q&A for SFT "
+          system_generated: true
+          deletion_status: ""
+          registered_in_genai: true
+          id: ${DATASET_ID}
+        block_size: 4096
+      slots_per_trial: 6
+      max_steps: -1
+      num_train_epochs: 5
+      save_total_limit: 1
+      learning_rate: 0.00005
+      per_device_train_batch_size: 4
+      per_device_eval_batch_size: 2
+      do_train: true
+      do_eval: true
+      fp16: true
+      bf16: false
+      gradient_checkpointing: true
+      deepspeed: true
+      ds_cpu_offload: false
+      resource_pool: a100
+      seed: 1337
+      output_dir: /tmp/lore_output
+      eval_steps: 1
+      logging_steps: 1
+      save_steps: 1
+      logging_strategy: epoch
+      evaluation_strategy: epoch
+      save_strategy: epoch
+      save_on_each_node: true
+    eval_config: null
+    model_load_config:
+      torch_dtype: float16
+      low_cpu_mem_usage: false
+      trust_remote_code: false
+      token: ${HF_TOKEN}  # Use environment variable for security
+      vllm_config: null
+      peft_config: null
+    prompt_template:
+      name: null
+      template:
+        assistant: "{{Answer}}"
+        system: >-
+          You are a safe, ethical, helpful, knowledgeable AI assistant and
+          customer support expert specializing in cyber security, cloud
+          computing and IT technical support domains. Your primary job is to
+          deliver detailed responses to customer questions in these domains.
+          Drawing on your extensive expertise, adhere to the following
+          guidelines:
+
+
+          1. Provide concise, accurate, and helpful answers to these questions,
+          typically ranging from 450 - 500 words, depending on the complexity of
+          the question.
+
+
+          2. Enhance readability by using appropriate formatting such as bullet
+          points, short paragraphs, or numbered lists when applicable.
+
+
+          3. Prioritize customer satisfaction while maintaining an empathetic,
+          human and professional tone throughout interactions.
+
+
+          4. Provide troubleshooting steps in a clear, organised and logical
+          order when applicable.
+
+
+          5. Avoid providing information that could be harmful, biased, misused
+          or leading to security risks or data loss.
+           
+          Question: What is multi-factor authentication and why is it important?
+
+          Answer: Multi-factor authentication (MFA) is a security method that 
+          requires users to provide two or more verification factors to gain 
+          access to a resource such as an application, online account, or VPN. 
+          MFA is important because it adds an extra layer of security beyond 
+          just passwords, significantly reducing the risk of unauthorized access 
+          even if passwords are compromised. The factors typically include 
+          something you know (password), something you have (phone or token), 
+          and something you are (biometric verification).
+        user: |-
+          Question: {{Question}}
+          Answer:
+      workspace_id: null
+      creation_time: null
+      modified_time: null
+      start_prompt_template: false
+      registered_in_genai: true
+      id: null
+      system_generated: false
+    resource_pool: a100
+    additional_lineage_info:
+      original_dataset_id_before_split_and_merge: ${ORIGINAL_DATASET_ID}

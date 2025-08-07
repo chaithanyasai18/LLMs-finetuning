@@ -1,0 +1,46 @@
+# Core ML libraries
+torch>=2.0.0
+transformers>=4.36.0
+datasets>=2.14.0
+accelerate>=0.25.0
+peft>=0.7.0
+trl>=0.7.0
+bitsandbytes>=0.41.0
+
+# Data processing
+pandas>=1.5.0
+numpy>=1.24.0
+pyarrow>=10.0.0
+
+# Experiment tracking and authentication
+wandb>=0.16.0
+huggingface_hub>=0.19.0
+
+# System monitoring
+psutil>=5.9.0
+
+# Tokenization (model-specific)
+sentencepiece>=0.1.99
+protobuf>=3.20.0
+
+# Optional: Flash Attention (for performance)
+# flash-attn>=2.3.0  # Uncomment if you want to install Flash Attention
+
+# Optional: Additional optimizations
+# deepspeed>=0.12.0  # For distributed training
+# xformers>=0.0.22   # For memory efficient attention
+
+# Development and utilities
+tqdm>=4.65.0
+packaging>=21.0
+typing-extensions>=4.5.0
+
+# For specific model support
+tokenizers>=0.15.0
+safetensors>=0.4.0
+
+# Environment management
+python-dotenv>=1.0.0
+
+# For better logging and debugging
+colorlog>=6.7.0
