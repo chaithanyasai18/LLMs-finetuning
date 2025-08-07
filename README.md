@@ -19,21 +19,27 @@ A comprehensive project for Large Language Model (LLM) fine-tuning specialized i
 
 This research case study is supported by Birmingham City University and METCLOUD, as part of the Knowledge TransferPartnership (KTP) (Project No: 10053887) funded by Innovate UK Research and Innovation (UKRI) Department, UK.
 
-## Partners and Collaborators
-
 <div align="center">
-  <img src="logos/bcu.png" alt="Birmingham City University" height="50" width= "200"/>
-      
-  <img src="logos/metcloud.png" alt="METCLOUD" height="50" width= "200"/>
-      
-  <img src="logos/innovateuk.png" alt="Innovate UK" height="50" width= "200"/>
+  <table>
+    <tr>
+      <td align="center" style="padding: 0 30px;">
+        <img src="logos/bcu.png" alt="Birmingham City University" height="60"/>
+      </td>
+      <td align="center" style="padding: 0 30px;">
+        <img src="logos/metcloud.png" alt="METCLOUD" height="80"/>
+      </td>
+      <td align="center" style="padding: 0 30px;">
+        <img src="logos/innovateuk.png" alt="Innovate UK" height="60"/>
+      </td>
+    </tr>
+  </table>
 </div>
 
 ## Project Architecture
 
 ```
 Code/
-├── Dataset/                 
+├── Dataset/             
 │   └── dataset.xlsx               # Main dataset file
 ├── Synthetic-Data-Generator/      # Synthetic dataset creation pipeline
 ├── Finetuning/                    # Model fine-tuning pipelines
@@ -415,8 +421,6 @@ limitations under the License.
 ```
 
 ## Acknowledgments
-
-### Research Team and Authors
 
 We extend our sincere thanks to the following researchers and industry partner who contributed their expertise and effort to this project:
 
