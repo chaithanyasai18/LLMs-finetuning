@@ -33,7 +33,7 @@ This research case study is supported by Birmingham City University and METCLOUD
 
 ```
 Code/
-├── Dataset/                   
+├── Dataset/                 
 │   └── dataset.xlsx               # Main dataset file
 ├── Synthetic-Data-Generator/      # Synthetic dataset creation pipeline
 ├── Finetuning/                    # Model fine-tuning pipelines
@@ -427,10 +427,3 @@ We extend our sincere thanks to the following researchers and industry partner w
 **METCLOUD (Managed Enterprise Technologies Limited)**
 
 - **Ian Vickers**, **Xavier Schmoor**
-#   L L M s - F i n e t u n i n g 
- 
- # LLMs-Finetuning
-# LLMs-Finetuning
-# LLMs-Finetuning
-#   L L M s - f i n e t u n i n g  
- 
