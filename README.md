@@ -17,7 +17,7 @@
 
 A comprehensive project for Large Language Model (LLM) fine-tuning specialized in cybersecurity, cloud computing, and IT support applications. This project combines synthetic data generation, Supervised fine-tuning (SFT) and parameter-efficient fine-tuning (PEFT) techniques Like LoRA and QLoRA to create domain-specific conversational AI assistants.
 
-This research case study is supported by Birmingham City University and METCLOUD, as part of the Knowledge TransferPartnership (KTP) (Project No: 10053887) funded by Innovate UK Research and Innovation (UKRI) Department, UK.
+This research case study is supported by **Birmingham City University** and **METCLOUD**, as part of the **Knowledge TransferPartnership (KTP)** (Project No: 10053887) funded by **Innovate UK Research and Innovation (UKRI) Department, United Kingdom**.
 
 <div align="center">
   <table>
@@ -39,7 +39,7 @@ This research case study is supported by Birmingham City University and METCLOUD
 
 ```
 Code/
-├── Dataset/         
+├── Dataset/       
 │   └── dataset.xlsx               # Main dataset file
 ├── Synthetic-Data-Generator/      # Synthetic dataset creation pipeline
 ├── Finetuning/                    # Model fine-tuning pipelines
