@@ -9,11 +9,11 @@ This Python project generates synthetic datasets for fine-tuning Large Language 
 ## How It Works
 
 The generator uses a two-step process:
+
 1. **Topic Tree Generation:** A hierarchical tree of topics is built from a root prompt, ensuring broad coverage and diversity in the dataset.
 2. **Data Generation:** For each topic path, the tool generates question-answer pairs using your chosen LLM, following your instructions and system prompt.
 
 This approach prevents repetitive data and ensures your dataset covers a wide range of relevant scenarios.
-
 
 ---
 
@@ -36,7 +36,6 @@ conda create -n datagen python=3.12
 conda activate datagen
 pip install -r requirements.txt
 ```
-
 
 ## Features
 
@@ -66,6 +65,7 @@ conda create -n datagen python=3.12
 conda activate datagen
 pip install -r requirements.txt
 ```
+
 ---
 
 Install the required package using pip:
@@ -208,7 +208,7 @@ with open('csv_data/output_01.csv', 'w', newline='', encoding='utf-8') as csv_fi
 
 ## Contributing
 
-Contributions are welcome! Open issues or submit pull requests on [GitHub](https://github.com/havenhq/pluto).
+Contributions are welcome! Open issues or submit pull requests on GitHub.
 
 ## License
 
