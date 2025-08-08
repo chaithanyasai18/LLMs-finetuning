@@ -208,7 +208,7 @@ with open('csv_data/output_01.csv', 'w', newline='', encoding='utf-8') as csv_fi
 
 ## Contributing
 
-Contributions are welcome! Open issues or submit pull requests on [GitHub](https://github.com/havenhq/pluto).
+Contributions are welcome! Open issues or submit pull requests on [GitHub](https://github.com/chaithanyasai18/LLMs-finetuning).
 
 ## License
 
