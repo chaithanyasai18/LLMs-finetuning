@@ -13,7 +13,7 @@ The dataset is provided in a user-friendly format, making it readily available f
 
 ### File Information
 
-- File Name: `dataset.csv`
-- Format: Comma-Separated Values (CSV)
+- File Name: `dataset.xlsx`
+- Format: Excel (.xlsx)
 - Total Entries: 11,000
 - Columns: Question, Answer
