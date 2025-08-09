@@ -21,3 +21,16 @@ The dataset is provided in a user-friendly format, making it readily available f
 ### Dataset availability
 
 The dataset is available on IEEE DataPort DOI: https://doi.org/10.21227/3gnj-b288
+
+## Citation
+If you use this dataset in your project, please cite it as follows:
+
+```bibtex
+@data{3gnj-b288-25,
+  doi       = {10.21227/3gnj-b288},
+  url       = {https://dx.doi.org/10.21227/3gnj-b288},
+  author    = {Chaithanya Vamshi Sai and Nouh Sabri Elmitwally and Iain Rice and Haitham Mahmoud and Ian Vickers and Xavier Schmoor},
+  publisher = {IEEE Dataport},
+  title     = {LLM Finetuning Q\&A - Cybersecurity, IT Support Dataset},
+  year      = {2025}
+}
